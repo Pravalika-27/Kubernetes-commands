@@ -1,0 +1,157 @@
+Basic Commands:
+kubectl version:
+Displays the version of kubectl and Kubernetes cluster.
+
+kubectl get nodes:
+Lists all the nodes in the Kubernetes cluster.
+
+kubectl get pods:
+Lists all the pods in the default namespace.
+
+kubectl get pods --all-namespaces:
+Lists all pods across all namespaces.
+
+kubectl get services:
+Lists all the services in the default namespace.
+
+kubectl get namespaces:
+Lists all the namespaces in the Kubernetes cluster.
+
+kubectl describe pod <pod_name>:
+Shows detailed information about a specific pod.
+
+kubectl describe node <node_name>:
+Shows detailed information about a specific node.
+
+kubectl describe service <service_name>:
+Shows detailed information about a specific service.
+
+kubectl get events:
+Lists the events that occurred in the cluster.
+
+Managing Pods and Deployments:
+kubectl create deployment <name> --image=<image>:
+Creates a deployment using the specified container image.
+
+kubectl scale deployment <name> --replicas=<count>:
+Scales the number of replicas in a deployment.
+
+kubectl rollout status deployment <name>:
+Displays the status of a deployment rollout.
+
+kubectl set image deployment/<name> <container>=<image>:
+Updates the image of a container in a deployment.
+
+kubectl rollout undo deployment <name>:
+Rolls back a deployment to the previous version.
+
+kubectl delete pod <pod_name>:
+Deletes a specific pod.
+
+kubectl delete deployment <name>:
+Deletes a specific deployment.
+
+kubectl exec -it <pod_name> -- /bin/bash:
+Opens an interactive terminal in a running pod.
+
+kubectl logs <pod_name>:
+Fetches the logs from a specific pod.
+
+kubectl logs <pod_name> -f:
+Streams logs from a pod in real time.
+
+kubectl get pods -o wide:
+Lists all pods with additional details, such as node and IP addresses.
+
+kubectl port-forward <pod_name> <local_port>:<pod_port>:
+Forwards a local port to a port on a pod.
+
+kubectl delete pod --grace-period=0 --force <pod_name>:
+Forcefully deletes a pod without waiting for its graceful shutdown.
+
+Namespaces:
+kubectl create namespace <namespace>:
+Creates a new namespace.
+
+kubectl get pods -n <namespace>:
+Lists all pods in a specific namespace.
+
+kubectl delete namespace <namespace>:
+Deletes a namespace and all resources within it.
+
+kubectl config set-context --current --namespace=<namespace>:
+Sets a default namespace for the current context.
+
+Services and Networking:
+kubectl expose deployment <name> --type=LoadBalancer --port=<port>:
+Exposes a deployment as a service.
+
+kubectl get svc:
+Lists all services in the default namespace.
+
+kubectl describe svc <service_name>:
+Shows detailed information about a specific service.
+
+kubectl port-forward svc/<service_name> <local_port>:<service_port>:
+Forwards a local port to a service.
+
+kubectl delete svc <service_name>:
+Deletes a specific service.
+
+kubectl get ingress:
+Lists all ingress resources in the current namespace.
+
+kubectl describe ingress <ingress_name>:
+Shows detailed information about a specific ingress.
+
+ConfigMaps and Secrets:
+kubectl create configmap <name> --from-literal=<key>=<value>:
+Creates a ConfigMap from literal values.
+
+kubectl create configmap <name> --from-file=<file_path>:
+Creates a ConfigMap from a file.
+
+kubectl get configmaps:
+Lists all ConfigMaps in the current namespace.
+
+kubectl describe configmap <name>:
+Shows detailed information about a ConfigMap.
+
+kubectl create secret generic <name> --from-literal=<key>=<value>:
+Creates a generic secret.
+
+kubectl get secrets:
+Lists all secrets in the current namespace.
+
+kubectl describe secret <name>:
+Shows detailed information about a secret.
+
+kubectl delete secret <name>:
+Deletes a specific secret.
+
+Managing Resources:
+kubectl apply -f <file.yaml>:
+Applies a configuration file to create or update a resource.
+
+kubectl delete -f <file.yaml>:
+Deletes resources defined in a configuration file.
+
+kubectl edit <resource> <name>:
+Edits the live configuration of a resource.
+
+kubectl top nodes:
+Displays the resource usage (CPU, memory) of nodes.
+
+kubectl top pods:
+Displays the resource usage (CPU, memory) of pods.
+
+kubectl drain <node_name>:
+Safely evicts all pods from a node, preparing it for maintenance.
+
+kubectl cordon <node_name>:
+Marks a node as unschedulable, preventing new pods from being assigned to it.
+
+kubectl uncordon <node_name>:
+Marks a node as schedulable, allowing new pods to be assigned to it.
+
+These commands are essential for managing Kubernetes clusters, pods, deployments, services, and networking, as well as monitoring and troubleshooting.
